@@ -656,6 +656,8 @@ void mtk_dsi_ddp_start(struct udevice *dev)
 	panel_enable_backlight(dsi->panel);
 
 	mtk_output_dsi_enable(dsi);
+
+	panel_set_backlight(dsi->panel, 100);
 }
 
 void mtk_dsi_ddp_stop(struct udevice *dev)
