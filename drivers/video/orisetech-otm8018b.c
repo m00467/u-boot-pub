@@ -310,12 +310,6 @@ static int otm8018b_hw_init(struct udevice *dev)
 	if (ret)
 		return log_ret(ret);
 
-	mdelay(50);
-
-	ret = otm8018b_set_backlight(dev, 100);
-	if (ret)
-		return log_ret(ret);
-
 	return 0;
 }
 
