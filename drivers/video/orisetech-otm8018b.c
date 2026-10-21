@@ -18,15 +18,15 @@ struct otm8018b_priv {
 };
 
 static struct display_timing default_timing = {
-	.pixelclock.typ		= (480 + 33 + 6 + 33) * (800 + 28 + 84 + 28) * 60,
+	.pixelclock.typ		= (480 + 98 + 32 + 98) * (800 + 28 + 84 + 28) * 51,
 	.hactive.typ		= 480,
-	.hfront_porch.typ	= 33,
-	.hback_porch.typ	= 6,
-	.hsync_len.typ		= 33,
+	.hfront_porch.typ	= 98,
+	.hback_porch.typ	= 98,
+	.hsync_len.typ		= 32,
 	.vactive.typ		= 800,
 	.vfront_porch.typ	= 28,
-	.vback_porch.typ	= 84,
-	.vsync_len.typ		= 28,
+	.vback_porch.typ	= 28,
+	.vsync_len.typ		= 84,
 };
 
 #define dsi_generic_write_seq(dsi, cmd, seq...) do {			\
@@ -322,7 +322,7 @@ static int otm8018b_probe(struct udevice *dev)
 	plat->lanes = 2;
 	plat->format = MIPI_DSI_FMT_RGB888;
 	plat->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_SYNC_PULSE |
-			   MIPI_DSI_MODE_LPM | MIPI_DSI_CLOCK_NON_CONTINUOUS;
+			   MIPI_DSI_MODE_LPM;
 
 	if (plat->device) {
 		plat->device->lanes = plat->lanes;
